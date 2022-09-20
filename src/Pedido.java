@@ -1,6 +1,7 @@
 import java.util.Date;
 
 public class Pedido {
+    private static int count = 0;
     private int id;
     private Date data = new Date();
     private Cliente cliente;
@@ -12,8 +13,8 @@ public class Pedido {
     }public int getId() {
         return id;
     }
-    public Pedido(int id, Cliente cliente) {
-        this.id = id;
+    public Pedido(Cliente cliente) {
         this.cliente = cliente;
+        this.id = ++count;
     }
 }

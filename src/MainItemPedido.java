@@ -7,8 +7,8 @@ public class MainItemPedido {
         Cliente cli2 = new Cliente("Eli", "002", "48 9 88888888", "Rua Azul", "N/S", "N/S", "Bairro Cinza", "Florianópolis", "Santa Catarina");
         
         // PEDIDOS FEITOS PELOS CLIENTES
-        Pedido p1 = new Pedido(1, cli1);
-        Pedido p2 = new Pedido(2, cli2);
+        Pedido p1 = new Pedido(cli1);
+        Pedido p2 = new Pedido(cli2);
 
         // PRODUTOS COMPRADOS
         Produto prod1 = new Produto(1, "Notebook Samsung", "descricao", 3523.00, 1, "Informática");

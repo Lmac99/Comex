@@ -9,9 +9,9 @@ public class MainPedido {
         Cliente cli3 = new Cliente("Gabi", "003", "65 9 77777777", "Rua Mar", "56", "N/S", "Bairro Peixe", "Fortaleza", "Ceará");
 
         String outS = "Na data: [%s] o cliente [%s] fez um pedido do tipo [%s]";
-        Pedido p1 = new Pedido(1, cli1);
-        Pedido p2 = new Pedido(2, cli2);
-        Pedido p3 = new Pedido(3, cli3);
+        Pedido p1 = new Pedido(cli1);
+        Pedido p2 = new Pedido(cli2);
+        Pedido p3 = new Pedido(cli3);
 
         System.out.println(String.format(outS, formatador.format(p1.getData()), p1.getCliente().getNome(), p1.getId()));
         System.out.println(String.format(outS, formatador.format(p2.getData()), p2.getCliente().getNome(), p2.getId()));
