@@ -1,18 +1,29 @@
-## Getting Started
+# 1. Visão do produto
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+O projeto Comex é um sistema de e-commerce marketplace. Seu objetivo é permitir que a sua base de clientes tenha acesso a vários vendedores e, assim, consolidar-se como o shopping eletrônico mais popular da internet.
 
-## Folder Structure
+## 2. Entidades importantes
 
-The workspace contains two folders by default, where:
+- **Produto**
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- **Categoria**
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+- **Cliente**
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+- **Pedido**
 
-## Dependency Management
+- **ItemDePedido**
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## 3. Requisitos funcionais
+
+Os requisitos funcionais são classificados em três categorias no Comex:
+
+- **Essencial:** implementação obrigatória para o sistema atingir seu objetivo principal:
+
+- **Importante:** acrescentam muito valor ao negócio;
+
+- **Desejável:** incrementam usabilidade e funcionalidades.
+
+- `src`: arquivo contendo o código fonte
+- `lib`: dependencias
+- `bin`: saídas compiladas
