@@ -11,8 +11,8 @@ public class MainItemPedido {
         Pedido p2 = new Pedido(cli2);
 
         // PRODUTOS COMPRADOS
-        Produto prod1 = new Produto(1, "Notebook Samsung", "descricao", 3523.00, 1, "Informática");
-        Produto prod2 = new ProdutoIsento(2, "Clean Architecture", "descricao", 102.90, 2, "Livros");
+        Produto prod1 = new Produto("Notebook Samsung", "descricao", 3523.00, 1, "Informática");
+        Produto prod2 = new ProdutoIsento("Clean Architecture", "descricao", 102.90, 2, "Livros");
 
         // COMPOSIÇÃO DO ITEM PEDIDO
         ItemPedido iPedido1 = new ItemPedido(2899.99, 2, prod1, p1, "PROMOCAO");

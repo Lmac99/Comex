@@ -1,4 +1,5 @@
 public class Produto {
+    private static int count = 0;
     private int id;
     private String nome;
     private String descricao;
@@ -6,13 +7,13 @@ public class Produto {
     private int quantidade;
     private String categoria;
 
-    public Produto(int id, String nome, String descricao, double preco, int quantidade, String categoria){
-        this.id = id;
+    public Produto(String nome, String descricao, double preco, int quantidade, String categoria){
         this.nome = nome;
         this.descricao = descricao;
         this.preco = preco;
         this.quantidade = quantidade;
         this.categoria = categoria;
+        this.id = ++count;
     }
 
     public String getCategoria() {
