@@ -1,7 +1,10 @@
 public class MainItemPedido {
     public static void main(String[] args) {
         String outS = "**************\nITEM DE PEDIDO %s\nPREÇO UNITÁRIO: %s\nQUANTIDADE: %s\nPRODUTO: %s\nPEDIDO: %s\nDESCONTO: %s\nTIPO DE DESCONTO: %s \n**************";
-        
+        //CATEGORIAS
+        Categoria cat1 = new Categoria("INFORMÁTICA");
+        Categoria cat2 = new Categoria("LIVROS");
+
         // CLIENTES
         Cliente cli1 = new Cliente("Ana", "001", "11 9 99999999", "Rua A", "12", "Apt 2", "Bairro A", "São Paulo", "São Paulo");
         Cliente cli2 = new Cliente("Eli", "002", "48 9 88888888", "Rua Azul", "N/S", "N/S", "Bairro Cinza", "Florianópolis", "Santa Catarina");
@@ -11,8 +14,8 @@ public class MainItemPedido {
         Pedido p2 = new Pedido(cli2);
 
         // PRODUTOS COMPRADOS
-        Produto prod1 = new Produto("Notebook Samsung", "descricao", 3523.00, 1, "Informática");
-        Produto prod2 = new ProdutoIsento("Clean Architecture", "descricao", 102.90, 2, "Livros");
+        Produto prod1 = new Produto("Notebook Samsung", "descricao", 3523.00, 1, cat1);
+        Produto prod2 = new ProdutoIsento("Clean Architecture", "descricao", 102.90, 2, cat2);
 
         // COMPOSIÇÃO DO ITEM PEDIDO
         ItemPedido iPedido1 = new ItemPedido(2899.99, 2, prod1, p1, "PROMOCAO");
