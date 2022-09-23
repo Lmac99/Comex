@@ -1,4 +1,4 @@
-public class Produto {
+public class Produto implements CalculadoraValorTotal {
     private static int count = 0;
     private int id;
     private String nome;
@@ -49,5 +49,9 @@ public class Produto {
     }
     public void calcImposto(){
         System.out.println("O valor do imposto sobre o produto é: "+ this.preco * 0.4);
+    }
+    public double calcula(){
+        double total = this.getPreco() * this.getQuantidade();
+        return total;
     }
 }

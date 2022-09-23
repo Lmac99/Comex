@@ -1,6 +1,5 @@
 public class MainCalculadoraValorTotal {
     public static void main(String[] args) {
-        CalculadoraValorTotal calc = new CalculadoraValorTotal();
         //CATEGORIAS
         Categoria cat1 = new Categoria("INFORMÁTICA");
         Categoria cat2 = new Categoria("LIVROS");
@@ -21,10 +20,10 @@ public class MainCalculadoraValorTotal {
         ItemPedido iPedido1 = new ItemPedido(2899.99, 2, prod1, p1, "PROMOCAO");
         ItemPedido iPedido2 = new ItemPedido(100, 11, prod2, p2, "QUANTIDADE");
 
-        System.out.println("Total produto "+ prod1.getId()+ ": " +calc.calcula(prod1));
-        System.out.println("Total produto "+ prod2.getId()+ ": " +calc.calcula(prod2));
+        System.out.println("Total produto "+ prod1.getId()+ ": " +prod1.calcula());
+        System.out.println("Total produto "+ prod2.getId()+ ": " +prod1.calcula());
 
-        System.out.println("Total Item pedido "+ iPedido1.getId()+ ": " +calc.calcula(iPedido1));
-        System.out.println("Total Item pedido "+ iPedido2.getId()+ ": " +calc.calcula(iPedido2));
+        System.out.println("Total Item pedido "+ iPedido1.getId()+ ": " +iPedido1.calcula());
+        System.out.println("Total Item pedido "+ iPedido2.getId()+ ": " +iPedido1.calcula());
     }
 }

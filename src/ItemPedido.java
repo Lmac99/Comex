@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class ItemPedido {
+public class ItemPedido implements CalculadoraValorTotal {
     private static int count = 0;
     private int id;
     private double preco;
@@ -52,5 +52,9 @@ public class ItemPedido {
     public void totalCdesconto(){
         double total = this.preco * this.quantidade;
         System.out.println("Preço do pedido com desconto: "+ (total - total*this.desconto));
+    }
+    public double calcula(){
+        double total = this.getPreco() * this.getQuantidade();
+        return total;
     }
 }
