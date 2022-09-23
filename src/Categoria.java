@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Categoria {
     private static int count = 0;
     private int id;
@@ -6,11 +8,11 @@ public class Categoria {
 
     public Categoria( String nome, String status){
         this.nome = nome;
-        this.status = status;
+        setStatus(status);
         this.id = ++count;
     }
     public Categoria(String nome){
-        this(nome, "ATIVA");
+        this(nome, "ativa");
     }
     public int getId() {
         return id;
@@ -29,6 +31,8 @@ public class Categoria {
         this.nome = nome;
     }
     public void setStatus(String status) {
-        this.status = status;
+        if(Objects.equals(status, "ativa") || Objects.equals(status, "inativa")){
+            this.status =  status;
+        }
     }
 }
