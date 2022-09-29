@@ -17,6 +17,13 @@ public class Produto implements CalculadoraValorTotal {
         setCategoria(categoria);
         setId(idVirtual);
     }
+    public Produto(long idVirtual, String nome, double preco, int quantidade, Categoria categoria){
+        setNome(nome);
+        setPreco(preco);
+        setQuantidade(quantidade);
+        setCategoria(categoria);
+        setId(idVirtual);
+    }
 
     public String getCategoria() {
         return categoria.getNome();
