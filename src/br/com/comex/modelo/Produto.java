@@ -1,28 +1,28 @@
 package br.com.comex.modelo;
 
 public class Produto implements CalculadoraValorTotal {
-    private static int count = 0;
-    private int id;
+    private static long count = 0;
+    private long id;
     private String nome;
     private String descricao;
     private double preco;
     private int quantidade;
     private Categoria categoria;
 
-    public Produto(String nome, String descricao, double preco, int quantidade, Categoria categoria){
-        this.nome = nome;
+    public Produto(long idVirtual, String nome, String descricao, double preco, int quantidade, Categoria categoria){
+        setNome(nome);
         this.descricao = descricao;
-        this.preco = preco;
-        this.quantidade = quantidade;
-        this.categoria = categoria;
-        this.id = ++count;
+        setPreco(preco);
+        setQuantidade(quantidade);
+        setCategoria(categoria);
+        setId(idVirtual);
     }
 
     public String getCategoria() {
         return categoria.getNome();
     }public String getDescricao() {
         return descricao;
-    }public int getId() {
+    }public long getId() {
         return id;
     }public String getNome() {
         return nome;
@@ -36,13 +36,25 @@ public class Produto implements CalculadoraValorTotal {
         this.categoria = categoria;
     }public void setDescricao(String descricao) {
         this.descricao = descricao;
-    }public void setId(int id) {
+    }public void setId(long id) {
+        if((id != ++count || id == 0)){
+            throw new IllegalArgumentException("Id diferente do próximo ou igual a zero");
+        }
         this.id = id;
     }public void setNome(String nome) {
+        if(nome.length() < 6){
+            throw new IllegalArgumentException("Nome inválido, número de caracteres menor que 6");
+        }
         this.nome = nome;
     }public void setPreco(double preco) {
+        if(preco < 1){
+            throw new IllegalArgumentException("Preço inválido, zero ou menor");
+        }
         this.preco = preco;
     }public void setQuantidade(int quantidade) {
+        if(quantidade < 1){
+            throw new IllegalArgumentException("Quantidade de estoque inválida, zero ou menor");
+        }
         this.quantidade = quantidade;
     }
 
