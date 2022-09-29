@@ -55,7 +55,7 @@ public class Cliente {
     
     public void setId(long id) {
         if((id != ++count || id == 0)){
-            throw new IllegalArgumentException("Id diferente do próximo ou igual a zero");
+            throw new ComexException("Id diferente do próximo ou igual a zero");
         }
         this.id = id;
     }
