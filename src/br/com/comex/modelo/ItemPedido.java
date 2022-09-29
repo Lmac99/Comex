@@ -1,3 +1,5 @@
+package br.com.comex.modelo;
+
 import java.util.Objects;
 
 public class ItemPedido implements CalculadoraValorTotal {

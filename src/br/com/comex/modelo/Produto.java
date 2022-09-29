@@ -1,3 +1,5 @@
+package br.com.comex.modelo;
+
 public class Produto implements CalculadoraValorTotal {
     private static int count = 0;
     private int id;

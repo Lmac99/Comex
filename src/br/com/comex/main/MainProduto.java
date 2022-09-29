@@ -1,7 +1,10 @@
+package br.com.comex.main;
+import br.com.comex.modelo.*;
+
 public class MainProduto {
     public static void main(String[] args) {
-        Categoria cat1 = new Categoria("INFORMÁTICA");
-        Categoria cat2 = new Categoria("LIVROS");
+        Categoria cat1 = new Categoria(1,"INFORMÁTICA", "ativa");
+        Categoria cat2 = new Categoria(2,"LIVROS", "inativa");
         Produto prod1 = new Produto("Notebook Samsung", "descricao", 3523.00, 1, cat1);
         //Produto prod2 = new Produto(2, "Clean Architecture", "descricao", 102.90, 2, "Livros"); <- exercício de criar o produto
         Produto prod2 = new ProdutoIsento("Clean Architecture", "descricao", 102.90, 2, cat2);

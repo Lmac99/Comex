@@ -1,3 +1,5 @@
+package br.com.comex.main;
+import br.com.comex.modelo.*;
 public class MainCliente {
     public static void main(String[] args) {
         String outS = "ID - %s *** NOME - %s *** CPF - %s *** TELEFONE - %s *** RUA - %s *** NUMERO - %s *** COMPLEMENTO - %s *** BAIRRO - %s *** CIDADE - %s *** ESTADO - %s";

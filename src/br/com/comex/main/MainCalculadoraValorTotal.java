@@ -1,8 +1,12 @@
+package br.com.comex.main;
+
+import br.com.comex.modelo.*;
+
 public class MainCalculadoraValorTotal {
     public static void main(String[] args) {
         //CATEGORIAS
-        Categoria cat1 = new Categoria("INFORMÁTICA");
-        Categoria cat2 = new Categoria("LIVROS");
+        Categoria cat1 = new Categoria(1,"INFORMÁTICA", "ativa");
+        Categoria cat2 = new Categoria(2,"LIVROS", "inativa");
 
         // CLIENTES
         Cliente cli1 = new Cliente("Ana", "001", "11 9 99999999", "Rua A", "12", "Apt 2", "Bairro A", "São Paulo","São Paulo");
