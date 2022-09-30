@@ -18,6 +18,9 @@ public class MainProduto {
         Produto prod6 = new Produto(6,"Monitor Dell 27", "descricao", 0.00, 3, cat1); // preço inválido
         Produto prod7 = new Produto(7,"Monitor Dell 27", "descricao", 10.00, 0, cat1); // quantidade inválida
 
+
+        System.out.println(prod1.toString());
+
         imprimirInfo(prod1);
         imprimirInfo(prod2);
         imprimirInfo(prod3);

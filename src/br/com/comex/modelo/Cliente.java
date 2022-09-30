@@ -110,5 +110,9 @@ public class Cliente {
         }
         this.estado = estado;
     }
+    @Override
+    public String toString() {
+        return "Objeto da classe Cliente";
+    }
     
 }

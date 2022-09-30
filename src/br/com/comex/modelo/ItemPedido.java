@@ -59,4 +59,8 @@ public class ItemPedido implements CalculadoraValorTotal {
         double total = this.getPreco() * this.getQuantidade();
         return total;
     }
+    @Override
+    public String toString() {
+        return "Objeto da classe ItemPedido";
+    }
 }

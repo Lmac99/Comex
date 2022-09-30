@@ -19,15 +19,6 @@ public class Categoria {
         this.nome = nome;
         this.id = count;
     }
-
-    /*public Categoria(String nome, String status){
-        this.nome = nome;
-        setStatus(status);
-        this.id = ++count;
-    }
-    public Categoria(String nome){
-        this(nome, "ativa");
-    }*/
     public long getId() {
         return id;
     }
@@ -51,5 +42,9 @@ public class Categoria {
         else{
             throw new IllegalArgumentException("Status inválido, são aceitos apenas valores: ativa/inativa");
         }
+    }
+    @Override
+    public String toString() {
+        return "Objeto da classe Categoria com as informações...id: "+this.id+" nome: "+this.nome+" status: "+this.status;
     }
 }

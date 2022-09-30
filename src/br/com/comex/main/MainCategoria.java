@@ -8,6 +8,8 @@ public class MainCategoria {
         Categoria cat3 = new Categoria(2,"MÓVEIS", "inativaa"); // status incorreto -> erro
         Categoria cat4 = new Categoria(0,"LIVROS", "ativa"); // id igual a zero -> erro
 
+        System.out.println(cat1.toString());
+
         System.out.println(String.format(outS, cat1.getNome(), cat1.getId(), cat1.getStatus()));
         System.out.println(String.format(outS, cat2.getNome(), cat2.getId(), cat2.getStatus()));
         System.out.println(String.format(outS, cat3.getNome(), cat3.getId(), cat3.getStatus()));

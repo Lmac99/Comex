@@ -19,4 +19,8 @@ public class Pedido {
         this.cliente = cliente;
         this.id = ++count;
     }
+    @Override
+    public String toString() {
+        return "Objeto da classe Categoria Pedido";
+    }
 }

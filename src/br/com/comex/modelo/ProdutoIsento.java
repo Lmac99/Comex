@@ -12,4 +12,8 @@ public class ProdutoIsento extends Produto{
     public void calcImposto() {
         System.out.println("O produto é isento de imposto");
     }
+    @Override
+    public String toString() {
+        return "Objeto da classe Categoria Produto isento";
+    }
 }

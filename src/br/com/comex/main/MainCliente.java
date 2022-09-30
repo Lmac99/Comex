@@ -7,6 +7,8 @@ public class MainCliente {
         Cliente cli2 = new Cliente(2,"Eli Maria", "11111111111", "48 9 88888888", "Rua Azul", "N/S", "N/S", "Bairro Cinza", "Florianópolis", "SC");
         Cliente cli3 = new Cliente(5,"Gabi", "222", "65 9 77777777777", "Rua", "5", "N/S", "Bairro Peixe", "Fort", "CE");
 
+        System.out.println(cli1.toString());
+
         System.out.println(String.format(outS, 
         cli1.getId(), cli1.getNome(), cli1.getCpf(), cli1.getTelefone(), cli1.getRua(), cli1.getNumero(), cli1.getComplemento(), cli1.getBairro(), cli1.getCidade(), cli1.getEstado()));
 

@@ -23,6 +23,8 @@ public class MainItemPedido {
         ItemPedido iPedido1 = new ItemPedido(2899.99, 2, prod1, p1, "PROMOCAO");
         ItemPedido iPedido2 = new ItemPedido(100, 11, prod2, p2, "QUANTIDADE");
 
+        System.out.println(iPedido1.toString());
+
         System.out.println(String.format(outS, iPedido1.getId(), iPedido1.getPreco(), iPedido1.getQuantidade(),
                 iPedido1.getProduto().getNome(), iPedido1.getIdPedido().getId(), iPedido1.getDesconto(),
                 iPedido1.getTipoDesconto()));

@@ -15,6 +15,8 @@ public class MainPedido {
         Pedido p2 = new Pedido(cli2);
         Pedido p3 = new Pedido(cli3);
 
+        System.out.println(p1.toString());
+
         System.out.println(String.format(outS, formatador.format(p1.getData()), p1.getCliente().getNome(), p1.getId()));
         System.out.println(String.format(outS, formatador.format(p2.getData()), p2.getCliente().getNome(), p2.getId()));
         System.out.println(String.format(outS, formatador.format(p3.getData()), p3.getCliente().getNome(), p3.getId()));
