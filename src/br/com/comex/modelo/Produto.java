@@ -1,5 +1,7 @@
 package br.com.comex.modelo;
 
+import java.util.regex.Pattern;
+
 public class Produto implements CalculadoraValorTotal {
     private static long count = 0;
     private long id;
@@ -49,8 +51,8 @@ public class Produto implements CalculadoraValorTotal {
         }
         this.id = id;
     }public void setNome(String nome) {
-        if(nome.length() < 6){
-            throw new IllegalArgumentException("Nome inválido, número de caracteres menor que 6");
+        if((nome.length() < 6) || Pattern.matches("\\d.*",nome)){
+            throw new IllegalArgumentException("Nome inválido, número de caracteres menor que 6 ou começando com dígitos");
         }
         this.nome = nome;
     }public void setPreco(double preco) {

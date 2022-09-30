@@ -5,12 +5,12 @@ import br.com.comex.modelo.*;
 public class MainCalculadoraValorTotal {
     public static void main(String[] args) {
         //CATEGORIAS
-        Categoria cat1 = new Categoria(1,"INFORMÁTICA", "ativa");
-        Categoria cat2 = new Categoria(2,"LIVROS", "inativa");
+        Categoria cat1 = new Categoria(1,"INFORMÁTICA", StatusCategoria.ATIVA);
+        Categoria cat2 = new Categoria(2,"LIVROS", StatusCategoria.INATIVA);
 
         // CLIENTES
-        Cliente cli1 = new Cliente(1,"Ana Paula", "00000000000", "11 9 99999999", "Rua Ali", "12", "Apt 2", "Bairro A", "São Paulo", "SP");
-        Cliente cli2 = new Cliente(2,"Eli Maria", "11111111111", "48 9 88888888", "Rua Azul", "N/S", "N/S", "Bairro Cinza", "Florianópolis", "SC");
+        Cliente cli1 = new Cliente(1,"Ana Paula", "00000000000", "11 9 99999999", "Rua Ali", "12", "Apt 2", "Bairro A", "São Paulo", EstadoClienteSigla.SP);
+        Cliente cli2 = new Cliente(2,"Eli Maria", "11111111111", "48 9 88888888", "Rua Azul", "N/S", "N/S", "Bairro Cinza", "Florianópolis", EstadoClienteSigla.SC);
 
         // PEDIDOS FEITOS PELOS CLIENTES
         Pedido p1 = new Pedido(cli1);

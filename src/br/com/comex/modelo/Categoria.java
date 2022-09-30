@@ -6,15 +6,15 @@ public class Categoria {
     private static long count = 0;
     private long id;
     private String nome;
-    private String status;
+    private StatusCategoria status;
 
-    public Categoria(long id, String nome, String status){
+    public Categoria(long id, String nome, StatusCategoria status){
         setStatus(status);
         if((id != ++count || id == 0)){
-            throw new IllegalArgumentException("Id diferente do próximo ou igual a zero");
+            throw new ComexException("Id diferente do próximo ou igual a zero");
         }
-        else if(nome.length() < 4){
-            throw new IllegalArgumentException("Nome com menos de 4 caracteres");
+        else if((nome.length() < 4) || (Character.isDigit(nome.charAt(0)))){
+            throw new ComexException("Nome com menos de 4 caracteres ou começando com número");
         }
         this.nome = nome;
         this.id = count;
@@ -25,7 +25,7 @@ public class Categoria {
     public String getNome() {
         return nome;
     }
-    public String getStatus() {
+    public StatusCategoria getStatus() {
         return status;
     }
 
@@ -35,12 +35,13 @@ public class Categoria {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public void setStatus(String status) {
-        if(Objects.equals(status, "ativa") || Objects.equals(status, "inativa")){
-            this.status =  status;
+    public void setStatus(StatusCategoria status) {
+        if(Objects.isNull(status)){
+            throw new ComexException("Valor nulo");
         }
-        else{
-            throw new IllegalArgumentException("Status inválido, são aceitos apenas valores: ativa/inativa");
+        switch (status){
+            case ATIVA: case INATIVA:
+                this.status = status;
         }
     }
     @Override

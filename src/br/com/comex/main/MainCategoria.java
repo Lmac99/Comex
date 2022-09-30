@@ -3,10 +3,10 @@ import br.com.comex.modelo.*;
 public class MainCategoria {
     public static void main(String[] args) {
         String outS = "Categoria %s (%s - %s)";
-        Categoria cat1 = new Categoria(1,"INFORMÁTICA", "ativa"); // funcionando normalmente
-        Categoria cat2 = new Categoria(5,"INFORMÁTICA", "ativa"); // id fora de ordem -> erro
-        Categoria cat3 = new Categoria(2,"MÓVEIS", "inativaa"); // status incorreto -> erro
-        Categoria cat4 = new Categoria(0,"LIVROS", "ativa"); // id igual a zero -> erro
+        Categoria cat1 = new Categoria(1,"INFORMÁTICA", StatusCategoria.INATIVA); // funcionando normalmente
+        Categoria cat2 = new Categoria(5,"INFORMÁTICA", StatusCategoria.ATIVA); // id fora de ordem -> erro
+        Categoria cat3 = new Categoria(2,"MÓVEIS", StatusCategoria.INATIVA); // status incorreto -> erro
+        Categoria cat4 = new Categoria(0,"LIVROS", StatusCategoria.INATIVA); // id igual a zero -> erro
 
         System.out.println(cat1.toString());
 

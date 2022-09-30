@@ -6,9 +6,9 @@ public class MainPedido {
     public static void main(String[] args) {
         SimpleDateFormat formatador = new SimpleDateFormat("dd/MM/yyyy");
 
-        Cliente cli1 = new Cliente(1,"Ana Paula", "00000000000", "11 9 99999999", "Rua Ali", "12", "Apt 2", "Bairro A", "São Paulo", "SP");
-        Cliente cli2 = new Cliente(2,"Eli Maria", "11111111111", "48 9 88888888", "Rua Azul", "N/S", "N/S", "Bairro Cinza", "Florianópolis", "SC");
-        Cliente cli3 = new Cliente(3,"Gabi Souza", "22222222222", "65 9 77777777", "Rua Mar", "56", "N/S", "Bairro Peixe", "Fortaleza", "CE");
+        Cliente cli1 = new Cliente(1,"Ana Paula", "00000000000", "11 9 99999999", "Rua Ali", "12", "Apt 2", "Bairro A", "São Paulo", EstadoClienteSigla.SP);
+        Cliente cli2 = new Cliente(2,"Eli Maria", "11111111111", "48 9 88888888", "Rua Azul", "N/S", "N/S", "Bairro Cinza", "Florianópolis", EstadoClienteSigla.SC);
+        Cliente cli3 = new Cliente(3,"Gabi Souza", "22222222222", "65 9 77777777", "Rua Mar", "56", "N/S", "Bairro Peixe", "Fortaleza", EstadoClienteSigla.CE);
 
         String outS = "Na data: [%s] o cliente [%s] fez um pedido do tipo [%s]";
         Pedido p1 = new Pedido(cli1);
