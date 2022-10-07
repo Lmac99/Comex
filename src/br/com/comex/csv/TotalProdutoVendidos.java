@@ -11,7 +11,7 @@ public class TotalProdutoVendidos {
         int quantidade = 0;
         List<PedidoCsv> pedidosCsv = lerPedidoCsv();
         for(PedidoCsv p: pedidosCsv){
-            //System.out.println(p.getQuantidade());
+            //quantidade += Integer.valueOf(p.getQuantidade());
             quantidade += Integer.parseInt(p.getQuantidade());
         }
         return quantidade;

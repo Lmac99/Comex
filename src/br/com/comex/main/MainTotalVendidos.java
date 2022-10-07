@@ -7,6 +7,6 @@ import br.com.comex.csv.TotalProdutoVendidos;
 public class MainTotalVendidos {
     public static void main(String[] args) throws IOException {
         TotalProdutoVendidos totalProdutos = new TotalProdutoVendidos();
-        System.out.println("Total de produtos vendidos: "+totalProdutos.CalculaTotal());
+        System.out.println("Total de produtos vendidos: "+(int)totalProdutos.CalculaTotal());
     }
 }
