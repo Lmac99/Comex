@@ -3,10 +3,14 @@ package br.com.comex.csv;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class PedidoMaisBaratoEMaisCaro {
+    Locale br = new Locale("pt", "BR");
+    NumberFormat brFormat = NumberFormat.getCurrencyInstance(br);
 
     public void encontrarProdutoMaisCaroEBarato() throws IOException{
         int indexCaro = 0;
@@ -19,13 +23,7 @@ public class PedidoMaisBaratoEMaisCaro {
 
         int index = 0;
         for(PedidoCsv p: pedidosCsv){
-            //System.out.println(p);
-            //System.out.println("index caro: "+indexCaro);
-            //System.out.println("1: "+valorMaisCaro);
-
-            //System.out.println("index barato: "+indexBarato);
-            //System.out.println("2: "+valorMaisBarato);
-            double montante = Float.parseFloat(p.getPreco()) * Integer.parseInt(p.getQuantidade());
+            double montante = Double.parseDouble(p.getPreco()) * Integer.parseInt(p.getQuantidade());
             if(index == 0){
                 indexCaro = index;
                 valorMaisCaro = montante;
@@ -50,8 +48,8 @@ public class PedidoMaisBaratoEMaisCaro {
         }
             
         }
-        System.out.println("Pedido mais barato: "+String.format("%.2f", valorMaisBarato) +" ("+pedidosCsv.get(indexBarato).getProduto()+")");
-        System.out.println("Pedido mais caro: "+String.format("%.2f", valorMaisCaro) +" ("+pedidosCsv.get(indexCaro).getProduto()+")");
+        System.out.println("Pedido mais barato: "+brFormat.format(valorMaisBarato) +" ("+pedidosCsv.get(indexBarato).getProduto()+")");
+        System.out.println("Pedido mais caro: "+brFormat.format(valorMaisCaro) +" ("+pedidosCsv.get(indexCaro).getProduto()+")");
         
         
     }
