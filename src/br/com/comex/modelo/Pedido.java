@@ -21,6 +21,6 @@ public class Pedido {
     }
     @Override
     public String toString() {
-        return "Objeto da classe Categoria Pedido";
+        return "Objeto da classe Pedido";
     }
 }
