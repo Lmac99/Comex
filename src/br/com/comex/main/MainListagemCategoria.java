@@ -14,7 +14,6 @@ public class MainListagemCategoria {
         ConnectionFactory connectionFactory = new ConnectionFactory();
         Connection conn = connectionFactory.conectar();
         try(PreparedStatement stmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)){
-            
             stmt.execute();
             ResultSet rst = stmt.getResultSet();
             while(rst.next()){
