@@ -3,39 +3,30 @@ package br.com.comex.main;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.List;
 
+import br.com.comex.DAO.CategoriaDAO;
 import br.com.comex.DAO.ConnectionFactory;
+import br.com.comex.modelo.Categoria;
+import br.com.comex.modelo.StatusCategoria;
 
 public class MainInsercaoCategoria {
     public static void main(String[] args) throws SQLException {
-        String nome = "TESTE 3";
-        String status = "INATIVA";
-        String query = "INSERT INTO comex.categoria (NOME, STATUS) VALUES (?, ?)";
 
-        ConnectionFactory connectionFactory = new ConnectionFactory();
-        Connection conn = connectionFactory.conectar();
-        conn.setAutoCommit(false);
+        Categoria cat1 = new Categoria("INFORMÁTICA");
+        Categoria cat2 = new Categoria("MÓVEIS", StatusCategoria.INATIVA);
+        Categoria cat3 = new Categoria("LIVROS");
 
-        try(PreparedStatement stmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS))
-        {  
-            adicionarVariavel(nome, status, stmt);
-            adicionarVariavel("TESTE 2", "ATIVA", stmt);
+        //ConnectionFactory connectionFactory = new ConnectionFactory();
+        //Connection conn = connectionFactory.conectar();
 
-            conn.commit();
-        }catch(SQLException e){
-            e.printStackTrace();
-            System.out.println("ROLLBACK INICIADO");
-            conn.rollback();
+        try(Connection conn = new ConnectionFactory().conectar()){
+            CategoriaDAO categoriaDAO = new CategoriaDAO(conn);
+            //categoriaDAO.criarCategoria(cat1);
+            //categoriaDAO.criarCategoria(cat2);
+            //categoriaDAO.criarCategoria(cat3);
+            List<Categoria> listaDeCategorias = categoriaDAO.consultaCategoria();
+            listaDeCategorias.stream().forEach(lc -> System.out.println(lc));
         }
-    }
-
-    private static void adicionarVariavel(String nome, String status, PreparedStatement stmt) throws SQLException{
-        stmt.setString(1, nome);
-        stmt.setString(2, status);
-
-        stmt.execute();
-
-        System.out.println("Number of rows updated in database =  " + stmt.getUpdateCount());
     }
 }

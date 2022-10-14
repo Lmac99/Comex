@@ -6,18 +6,23 @@ public class Categoria {
     private static long count = 0;
     private long id;
     private String nome;
-    private StatusCategoria status;
+    private StatusCategoria status = StatusCategoria.ATIVA;
 
     public Categoria(long id, String nome, StatusCategoria status){
+        System.out.println("AAAA "+id);
         setStatus(status);
-        if((id != ++count || id == 0)){
-            throw new ComexException("Id diferente do próximo ou igual a zero");
-        }
-        else if((nome.length() < 4) || (Character.isDigit(nome.charAt(0)))){
-            throw new ComexException("Nome com menos de 4 caracteres ou começando com número");
-        }
-        this.nome = nome;
-        this.id = count;
+        setNome(nome);
+        setId(id);
+        
+    }
+    public Categoria(String nome, StatusCategoria status){
+        setStatus(status);
+        setNome(nome);
+        this.id = ++count;
+    }
+    public Categoria(String nome){
+        setNome(nome);
+        this.id = ++count;
     }
     public long getId() {
         return id;
@@ -30,9 +35,16 @@ public class Categoria {
     }
 
     public void setId(long id) {
-        this.id = id;
+        System.out.println("count "+count);
+        if((id != ++count || id == 0)){
+            throw new ComexException("Id diferente do próximo ou igual a zero");
+        }
+        this.id = count;
     }
     public void setNome(String nome) {
+        if((nome.length() < 4) || (Character.isDigit(nome.charAt(0)))){
+            throw new ComexException("Nome com menos de 4 caracteres ou começando com número");
+        }
         this.nome = nome;
     }
     public void setStatus(StatusCategoria status) {
