@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Locale;
 
 // Classe que vai receber o retorno da função que busca os valores e armazenar eles.
+// CLASSE INSTÂNCIADA E EXECUTADA NA CLASSE MainPedidoBaratoECaro
 final class Valores {
     private final double valorMaisCaro;
     private final double valorMaisBarato;

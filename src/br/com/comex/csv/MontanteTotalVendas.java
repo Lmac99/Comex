@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class MontanteTotalVendas {
-
+    // CLASSE INSTÂNCIADA E EXECUTADA NA CLASSE MainTotalVendidos
     public float calcularMontanteVendas() throws IOException{
         float montante = 0f;
         List<PedidoCsv> pedidos = new LeitorPedidosCsv().lerPedidoCsv();

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TotalCategorias {
-
+    // CLASSE INSTÂNCIADA E EXECUTADA NA CLASSE MainTotalCategoria
     public void calcularTotalCategorias() throws IOException{
         List<PedidoCsv> pedidosSemDuplicatas = new LeitorPedidosCsv().lerPedidoCsv();
         List<String> categoriasUnicas = new ArrayList<String>();

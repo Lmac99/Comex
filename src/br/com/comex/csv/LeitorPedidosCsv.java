@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LeitorPedidosCsv {
+    // CLASSE INSTÂNCIADA E EXECUTADA NA CLASSE MainLeitorPedido
     public List<PedidoCsv> lerPedidoCsv() throws IOException {
         List<PedidoCsv> pedidosCsv = new ArrayList<PedidoCsv>();
 
