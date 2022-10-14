@@ -8,7 +8,5 @@ public class ConnectionFactory {
 
     public Connection conectar() throws SQLException {
         return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "comex", "comex");
-        //System.out.println(conn.isValid(10));
-        //conn.close();
     }
 }

@@ -10,12 +10,11 @@ import br.com.comex.DAO.ConnectionFactory;
 
 public class MainListagemCategoria {
     public static void main(String[] args) throws SQLException {
-        try{
-            String query = "SELECT NOME, STATUS FROM comex.categoria";
-            ConnectionFactory connectionFactory = new ConnectionFactory();
-            Connection conn = connectionFactory.conectar();
-
-            PreparedStatement stmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+        String query = "SELECT NOME, STATUS FROM comex.categoria";
+        ConnectionFactory connectionFactory = new ConnectionFactory();
+        Connection conn = connectionFactory.conectar();
+        try(PreparedStatement stmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)){
+            
             stmt.execute();
             ResultSet rst = stmt.getResultSet();
             while(rst.next()){
@@ -25,7 +24,6 @@ public class MainListagemCategoria {
                 String status = rst.getString("STATUS");
                 System.out.println(status);
             }
-            conn.close();
         }catch(SQLException e){
             System.out.println(e);
         }
