@@ -1,6 +1,7 @@
 package br.com.comex.main;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -14,8 +15,8 @@ public class MainListagemCategoria {
             ConnectionFactory connectionFactory = new ConnectionFactory();
             Connection conn = connectionFactory.conectar();
 
-            Statement stmt = conn.createStatement();
-            stmt.execute(query);
+            PreparedStatement stmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+            stmt.execute();
             ResultSet rst = stmt.getResultSet();
             while(rst.next()){
                 String nome = rst.getString("NOME");
