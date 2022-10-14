@@ -67,11 +67,15 @@ public class Produto implements CalculadoraValorTotal {
         this.quantidade = quantidade;
     }
 
-    public void calcValorEstoque(){
-        System.out.println("O valor do produto em estoque é: "+ this.quantidade * this.preco);
+    public double calcValorEstoque(){
+        double valorEstoque = this.quantidade * this.preco;
+        System.out.println("O valor do produto em estoque é: "+ valorEstoque);
+        return valorEstoque;
     }
-    public void calcImposto(){
-        System.out.println("O valor do imposto sobre o produto é: "+ this.preco * 0.4);
+    public double calcImposto(){
+        double imposto = this.preco * 0.4;
+        System.out.println("O valor do imposto sobre o produto é: "+ imposto);
+        return imposto;
     }
     public double calcula(){
         double total = this.getPreco() * this.getQuantidade();

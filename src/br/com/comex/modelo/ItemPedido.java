@@ -51,9 +51,10 @@ public class ItemPedido implements CalculadoraValorTotal {
             this.desconto = 0;
         }
     }
-    public void totalCdesconto(){
+    public double totalCdesconto(){
         double total = this.preco * this.quantidade;
         System.out.println("Preço do pedido com desconto: "+ (total - total*this.desconto));
+        return total;
     }
     public double calcula(){
         double total = this.getPreco() * this.getQuantidade();

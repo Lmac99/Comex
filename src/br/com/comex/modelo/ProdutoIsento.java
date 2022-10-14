@@ -9,8 +9,9 @@ public class ProdutoIsento extends Produto{
     }
 
     @Override
-    public void calcImposto() {
+    public double calcImposto() {
         System.out.println("O produto é isento de imposto");
+        return 0;
     }
     @Override
     public String toString() {
