@@ -17,16 +17,11 @@ public class MainInsercaoCategoria {
         Categoria cat2 = new Categoria("MÓVEIS", StatusCategoria.INATIVA);
         Categoria cat3 = new Categoria("LIVROS");
 
-        //ConnectionFactory connectionFactory = new ConnectionFactory();
-        //Connection conn = connectionFactory.conectar();
-
         try(Connection conn = new ConnectionFactory().conectar()){
             CategoriaDAO categoriaDAO = new CategoriaDAO(conn);
-            //categoriaDAO.criarCategoria(cat1);
-            //categoriaDAO.criarCategoria(cat2);
-            //categoriaDAO.criarCategoria(cat3);
-            List<Categoria> listaDeCategorias = categoriaDAO.consultaCategoria();
-            listaDeCategorias.stream().forEach(lc -> System.out.println(lc));
+            categoriaDAO.criarCategoria(cat1);
+            categoriaDAO.criarCategoria(cat2);
+            categoriaDAO.criarCategoria(cat3);
         }
     }
 }

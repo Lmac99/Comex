@@ -23,13 +23,13 @@ public class CategoriaDAO {
         String query = "INSERT INTO comex.categoria (NOME, STATUS) VALUES (?, ?)";
 
         try(PreparedStatement stmt = this.conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS))
-        {  
+        {
             stmt.setString(1, categoria.getNome());
             stmt.setString(2, categoria.getStatus().name());
 
             stmt.execute();
 
-            System.out.println("Number of rows updated in database =  " + stmt.getUpdateCount());
+            System.out.println("Linhas criadas =  " + stmt.getUpdateCount());
 
             conn.commit();
         }catch(SQLException e){
@@ -38,8 +38,53 @@ public class CategoriaDAO {
             conn.rollback();
         }
     }
-    public void removerCategoria(){}
-    public void atualizarCategoria(){}
+    // Adicionar dois parâmetros, um com a coluna que vai ser validada e outra com o valor 
+    public void removerCategoria() throws SQLException{
+        this.conn.setAutoCommit(false);
+        String query = "DELETE FROM comex.categoria WHERE ? = ?";
+
+        try(PreparedStatement stmt = this.conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS))
+        {
+            stmt.setString(1, "STATUS");
+            stmt.setString(2, "INATIVA");
+            stmt.execute();
+
+            Integer linhasModificadas = stmt.getUpdateCount();
+            
+            conn.commit();
+            System.out.println("Linhas removidas "+linhasModificadas);
+
+
+        }catch(SQLException e){
+            System.out.println(e);
+            System.out.println("ROLLBACK INICIADO");
+            conn.rollback();
+        }
+    }
+    public void atualizarCategoria(Categoria categoria) throws SQLException{
+        this.conn.setAutoCommit(false);
+        //String query = "UPDATE comex.categoria SET NOME = ? WHERE NOME = ?";
+        //String query = "UPDATE comex.categoria SET ? = ? WHERE ? = ?";
+        String query = "UPDATE comex.categoria SET NOME = ?, STATUS = ? WHERE id = ?";
+        
+        
+        try(PreparedStatement stmt = this.conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS))
+        {
+            stmt.setString(1, categoria.getNome());
+            stmt.setString(2, categoria.getStatus().name());
+            stmt.setLong(3, categoria.getId());
+
+            stmt.executeUpdate();
+
+            System.out.println("Linhas atualizadas =  " + stmt.getUpdateCount());
+
+            conn.commit();
+        }catch(SQLException e){
+            e.printStackTrace();
+            System.out.println("ROLLBACK INICIADO");
+            conn.rollback();
+        }
+    }
 
     public List<Categoria> consultaCategoria() throws SQLException{
         List<Categoria> categorias = new ArrayList<Categoria>();
@@ -50,7 +95,7 @@ public class CategoriaDAO {
             stmt.execute();
             try(ResultSet rst = stmt.getResultSet()){
                 while(rst.next()){
-                    System.out.println(rst.getInt(1));
+                    //System.out.println(rst.getInt(1)); <- comando para checar o id
                     Categoria cat = new Categoria(rst.getInt(1), rst.getString(2), StatusCategoria.valueOf(rst.getString(3)));
                     categorias.add(cat);
                 }

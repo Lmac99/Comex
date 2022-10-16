@@ -4,8 +4,8 @@ public class MainItemPedido {
     public static void main(String[] args) {
         String outS = "**************\nITEM DE PEDIDO %s\nPREÇO UNITÁRIO: %s\nQUANTIDADE: %s\nPRODUTO: %s\nPEDIDO: %s\nDESCONTO: %s\nTIPO DE DESCONTO: %s \n**************";
         // CATEGORIAS
-        Categoria cat1 = new Categoria(1,"INFORMÁTICA", StatusCategoria.ATIVA);
-        Categoria cat2 = new Categoria(2,"LIVROS", StatusCategoria.INATIVA);
+        Categoria cat1 = new Categoria("INFORMÁTICA", StatusCategoria.ATIVA);
+        Categoria cat2 = new Categoria("LIVROS", StatusCategoria.INATIVA);
 
         // CLIENTES
         Cliente cli1 = new Cliente(1,"Ana Paula", "00000000000", "(11) 9 9999-9999", "Rua Ali", "12", "Apt 2", "Bairro A", "São Paulo", EstadoClienteSigla.SP);

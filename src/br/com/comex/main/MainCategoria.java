@@ -3,7 +3,7 @@ import br.com.comex.modelo.*;
 public class MainCategoria {
     public static void main(String[] args) {
         String outS = "Categoria %s (%s - %s)";
-        Categoria cat1 = new Categoria(1,"INFORMÁTICA", StatusCategoria.INATIVA); // funcionando normalmente
+        Categoria cat1 = new Categoria("INFORMÁTICA", StatusCategoria.INATIVA); // funcionando normalmente
         Categoria cat2 = new Categoria("INFMÁTICA", StatusCategoria.INATIVA);
         Categoria cat3 = new Categoria("INFTICA");
 

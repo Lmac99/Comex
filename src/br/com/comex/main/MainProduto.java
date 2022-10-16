@@ -5,8 +5,8 @@ import br.com.comex.modelo.*;
 public class MainProduto {
     public static void main(String[] args) {
         //-------------------------
-        Categoria cat1 = new Categoria(1,"INFORMÁTICA", StatusCategoria.ATIVA);
-        Categoria cat2 = new Categoria(2,"LIVROS", StatusCategoria.INATIVA);
+        Categoria cat1 = new Categoria("INFORMÁTICA", StatusCategoria.ATIVA);
+        Categoria cat2 = new Categoria("LIVROS", StatusCategoria.INATIVA);
         //-------------------------
         //-------------------------
         Produto prod1 = new Produto(1,"Notebook Samsung", 3523.00, 1, cat1);

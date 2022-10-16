@@ -9,7 +9,6 @@ public class Categoria {
     private StatusCategoria status = StatusCategoria.ATIVA;
 
     public Categoria(long id, String nome, StatusCategoria status){
-        System.out.println("AAAA "+id);
         setStatus(status);
         setNome(nome);
         setId(id);
@@ -35,11 +34,7 @@ public class Categoria {
     }
 
     public void setId(long id) {
-        System.out.println("count "+count);
-        if((id != ++count || id == 0)){
-            throw new ComexException("Id diferente do próximo ou igual a zero");
-        }
-        this.id = count;
+        this.id = id;
     }
     public void setNome(String nome) {
         if((nome.length() < 4) || (Character.isDigit(nome.charAt(0)))){
