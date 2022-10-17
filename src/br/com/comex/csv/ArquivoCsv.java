@@ -1,16 +1,17 @@
 package br.com.comex.csv;
-
 import java.io.BufferedReader;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+public class ArquivoCsv implements PedidosArquivo {
 
-public class LeitorPedidosCsv {
-    public List<PedidoCsv> lerPedidoCsv() throws IOException {
+    @Override
+    public List<PedidoCsv> lerPedido(String fileName) throws IOException {
         List<PedidoCsv> pedidosCsv = new ArrayList<PedidoCsv>();
 
-        BufferedReader buffReader = new BufferedReader(new FileReader("pedidos.csv"));
+        BufferedReader buffReader = new BufferedReader(new FileReader(fileName));
         buffReader.readLine();
         String linha = buffReader.readLine();
 

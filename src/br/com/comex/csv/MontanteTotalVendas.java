@@ -8,7 +8,7 @@ public class MontanteTotalVendas {
 
     public float calcularMontanteVendas() throws IOException{
         float montante = 0f;
-        List<PedidoCsv> pedidos = new LeitorPedidosCsv().lerPedidoCsv();
+        List<PedidoCsv> pedidos = new LeitorPedidos().lerCsvJson(new ArquivoCsv(), "pedidos.json");
         for (PedidoCsv tempPedido : pedidos) {
             montante += Float.parseFloat(tempPedido.getPreco()) * Integer.parseInt(tempPedido.getQuantidade());
         }

@@ -106,7 +106,11 @@ public class ProdutoDAO {
                     try(Connection conn = new ConnectionFactory().conectar()){
                         CategoriaDAO categoriaDAO = new CategoriaDAO(conn);
                         Categoria cat = categoriaDAO.consultaCategoria(rst.getInt(6));
-                        Produto prod = new Produto(rst.getInt(1), rst.getString(2), descricao, rst.getDouble(4), rst.getInt(5), cat, TipoProduto.valueOf(rst.getString(7)));
+                        Produto prod = new Produto(
+                            
+                            rst.getInt(1), rst.getString(2), descricao, 
+                            rst.getDouble(4), rst.getInt(5), cat, 
+                            TipoProduto.valueOf(rst.getString(7)));
                         produtos.add(prod);
                     }
                 }

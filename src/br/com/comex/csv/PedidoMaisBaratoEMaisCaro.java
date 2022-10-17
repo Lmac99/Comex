@@ -39,7 +39,7 @@ public class PedidoMaisBaratoEMaisCaro {
 
     public void ProdutoMaisCaroEBarato() throws IOException {
         
-        List<PedidoCsv> pedidosCsv = new LeitorPedidosCsv().lerPedidoCsv();
+        List<PedidoCsv> pedidosCsv = new LeitorPedidos().lerCsvJson(new ArquivoCsv(), "pedidos.json");
 
         Valores val = encontrarProdutoMaisCaroEBarato(pedidosCsv);
         

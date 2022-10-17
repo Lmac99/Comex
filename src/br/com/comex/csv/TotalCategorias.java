@@ -7,7 +7,7 @@ import java.util.List;
 public class TotalCategorias {
 
     public void calcularTotalCategorias() throws IOException{
-        List<PedidoCsv> pedidosSemDuplicatas = new LeitorPedidosCsv().lerPedidoCsv();
+        List<PedidoCsv> pedidosSemDuplicatas = new LeitorPedidos().lerCsvJson(new ArquivoCsv(), "pedidos.json");
         List<String> categoriasUnicas = new ArrayList<String>();
         for (PedidoCsv tempPedido : pedidosSemDuplicatas) {
             String categoria = tempPedido.getCategoria();
