@@ -3,7 +3,6 @@ package br.com.comex.modelo;
 import java.util.regex.Pattern;
 
 public class Cliente {
-    private static int count = 0;
     private long id;
     private String nome;
     private String cpf;
@@ -43,22 +42,19 @@ public class Cliente {
         setTelefone(telefone);
         setRua(rua);
         setNumero(numero);
-        this.complemento = complemento;
+        setComplemento(complemento);
         setBairro(bairro);
         setCidade(cidade);
         setEstado(estado);
     }
     public Cliente(long id, String nome, String cpf, String rua, String numero, String complemento, String bairro, String cidade, EstadoClienteSigla estado){
-        this(id, nome, cpf, "",rua, numero, complemento, bairro, cidade, estado);
+        this(id, nome, cpf, "(00) 0 0000-0000",rua, numero, complemento, bairro, cidade, estado);
     }
     public Cliente(long id, String nome, String cpf, String rua, String numero, String bairro, String cidade, EstadoClienteSigla estado){
-        this(id, nome, cpf, "",rua, numero, "", bairro, cidade, estado);
+        this(id, nome, cpf, "(00) 0 0000-0000",rua, numero, "", bairro, cidade, estado);
     }
     
     public void setId(long id) {
-        if((id != ++count || id == 0)){
-            throw new ComexException("Id diferente do próximo ou igual a zero");
-        }
         this.id = id;
     }
     public void setNome(String nome) {
@@ -115,7 +111,9 @@ public class Cliente {
     }
     @Override
     public String toString() {
-        return "Objeto da classe Cliente";
+        String outS = "Objeto da classe Cliente Com as informações: ID: %s -- Nome: %s -- Cpf: %s --\nTelefone: %s -- Rua: %s -- Numero: %s -- Complemento: %s\nBairro: %s -- Cidade: %s -- UF: %s";
+        System.out.println(String.format(outS, this.id, this.nome, this.cpf, this.telefone, this.rua, this.numero, this.complemento, this.bairro, this.cidade, this.estado));
+        return "";
     }
     
 }

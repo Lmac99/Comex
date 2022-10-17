@@ -88,7 +88,7 @@ public class Produto implements CalculadoraValorTotal {
     }
     @Override
     public String toString() {
-        String outS = "Objeto da classe Categoria Produto Com as informações: ID: %s -- Nome: %s -- Descricao: %s --\nPreco: %s -- Quantidade: %s -- ID categoria: %s -- Tipo: %s";
+        String outS = "Objeto da classe Produto Com as informações: ID: %s -- Nome: %s -- Descricao: %s --\nPreco: %s -- Quantidade: %s -- ID categoria: %s -- Tipo: %s";
         System.out.println(String.format(outS, this.id, this.nome, this.descricao, this.preco, this.quantidade, this.categoria, this.tipo));
         return "";
     }
