@@ -1,9 +1,7 @@
 package br.com.comex.main;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.List;
 
 import br.com.comex.DAO.CategoriaDAO;
 import br.com.comex.DAO.ConnectionFactory;

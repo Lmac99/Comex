@@ -107,12 +107,10 @@ public class ClienteDAO {
             try(ResultSet rst = stmt.getResultSet()){
                 while(rst.next()){
                     String complemento = rst.getString(7) == null ? "sem complemento" : rst.getString(3);
-                    try(Connection conn = new ConnectionFactory().conectar()){
-                        Cliente cliente = new Cliente(rst.getInt(1), rst.getString(2), rst.getString(3),
-                        rst.getString(4),rst.getString(5),
-                        rst.getString(6),complemento,rst.getString(8),rst.getString(9), EstadoClienteSigla.valueOf(rst.getString(10)));
-                        clientes.add(cliente);
-                    }
+                    Cliente cliente = new Cliente(rst.getInt(1), rst.getString(2), rst.getString(3),
+                    rst.getString(4),rst.getString(5),
+                    rst.getString(6),complemento,rst.getString(8),rst.getString(9), EstadoClienteSigla.valueOf(rst.getString(10)));
+                    clientes.add(cliente);
                 }
             }
         }

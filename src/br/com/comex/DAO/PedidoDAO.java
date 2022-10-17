@@ -91,10 +91,8 @@ public class PedidoDAO {
             stmt.execute();
             try(ResultSet rst = stmt.getResultSet()){
                 while(rst.next()){
-                    try(Connection conn = new ConnectionFactory().conectar()){
-                        Pedido pedido = new Pedido(rst.getLong(1), rst.getDate(2), rst.getLong(3));
-                        pedidos.add(pedido);
-                    }
+                    Pedido pedido = new Pedido(rst.getLong(1), rst.getDate(2), rst.getLong(3));
+                    pedidos.add(pedido);
                 }
             }
         }
