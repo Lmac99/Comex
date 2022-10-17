@@ -2,6 +2,8 @@ package br.com.comex.DAO;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.sql.DataSource;
 
@@ -13,6 +15,8 @@ public class ConnectionFactory {
 
     public ConnectionFactory() throws SQLException{
         ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
+        Logger.getLogger("com.mchange.v2.c3p0").setLevel(Level.WARNING);
+
         comboPooledDataSource.setJdbcUrl("jdbc:oracle:thin:@localhost:1521:xe");
         comboPooledDataSource.setUser("comex");
         comboPooledDataSource.setPassword("comex");

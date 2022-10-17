@@ -39,15 +39,14 @@ public class CategoriaDAO {
         }
     }
     // Adicionar dois parâmetros, um com a coluna que vai ser validada e outra com o valor 
-    public void removerCategoria() throws SQLException{
+    public void removerCategoria(String valor) throws SQLException{
         this.conn.setAutoCommit(false);
-        String query = "DELETE FROM comex.categoria WHERE ? = ?";
+        String query = "DELETE FROM comex.categoria WHERE STATUS = ?";
 
         try(PreparedStatement stmt = this.conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS))
         {
-            stmt.setString(1, "STATUS");
-            stmt.setString(2, "INATIVA");
-            stmt.execute();
+            stmt.setString(1, valor);
+            stmt.executeUpdate();
 
             Integer linhasModificadas = stmt.getUpdateCount();
             

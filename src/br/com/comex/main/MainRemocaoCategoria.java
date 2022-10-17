@@ -10,7 +10,7 @@ public class MainRemocaoCategoria {
     public static void main(String[] args) throws SQLException {
         try(Connection conn = new ConnectionFactory().conectar()){
             CategoriaDAO categoriaDAO = new CategoriaDAO(conn);
-            categoriaDAO.removerCategoria();
+            categoriaDAO.removerCategoria("INATIVA");
         }
     }
     

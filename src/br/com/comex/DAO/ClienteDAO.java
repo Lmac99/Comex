@@ -46,14 +46,14 @@ public class ClienteDAO {
         }
     }
 
-    public void remover(int id) throws SQLException{
+    public void remover(Cliente cliente) throws SQLException{
         this.conn.setAutoCommit(false);
         String query = "DELETE FROM comex.cliente WHERE ID = ?";
         //String query = "DELETE FROM comex.cliente WHERE ID = ?"; -> cliente.getId();
 
         try(PreparedStatement stmt = this.conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS))
         {
-            stmt.setLong(1, id);
+            stmt.setLong(1, cliente.getId());
             stmt.execute();
 
             Integer linhasModificadas = stmt.getUpdateCount();
@@ -68,9 +68,8 @@ public class ClienteDAO {
             conn.rollback();
         }
     }
-    public void atualizar(Cliente cliente, int id) throws SQLException{
+    public void atualizar(Cliente cliente, Long id) throws SQLException{
         this.conn.setAutoCommit(false);
-        //NOME, CPF, TELEFONE, RUA, NUMERO, COMPLEMENTO, BAIRRO, CIDADE, UF
         String query = "UPDATE comex.cliente SET NOME = ?, CPF = ?, TELEFONE = ?, RUA = ?, NUMERO = ?, COMPLEMENTO = ?, BAIRRO = ?, CIDADE = ?, UF = ? WHERE ID = ?";
         
         
@@ -85,7 +84,7 @@ public class ClienteDAO {
             stmt.setString(7, cliente.getBairro());
             stmt.setString(8, cliente.getCidade());
             stmt.setString(9, cliente.getEstado().name());
-            stmt.setInt(10, id);
+            stmt.setLong(10, id);
 
             stmt.executeUpdate();
 
