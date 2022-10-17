@@ -8,7 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.comex.modelo.Categoria;
 import br.com.comex.modelo.Produto;
 import br.com.comex.modelo.TipoProduto;
 
@@ -29,7 +28,7 @@ public class ProdutoDAO {
             stmt.setString(2, produto.getDescricao());
             stmt.setDouble(3, produto.getPreco());
             stmt.setInt(4, produto.getQuantidade());
-            stmt.setLong(5, produto.getCategoria().getId());
+            stmt.setLong(5, produto.getCategoria());
             stmt.setString(6, produto.getTipo().name());
 
             stmt.execute();
@@ -77,7 +76,7 @@ public class ProdutoDAO {
             stmt.setString(2, produto.getDescricao());
             stmt.setDouble(3, produto.getPreco());
             stmt.setInt(4, produto.getQuantidade());
-            stmt.setLong(5, produto.getCategoria().getId());
+            stmt.setLong(5, produto.getCategoria());
             stmt.setString(6, produto.getTipo().name());
             stmt.setLong(7, produto.getId());
 
@@ -103,16 +102,12 @@ public class ProdutoDAO {
             try(ResultSet rst = stmt.getResultSet()){
                 while(rst.next()){
                     String descricao = rst.getString(3) == null ? "sem descricao" : rst.getString(3);
-                    try(Connection conn = new ConnectionFactory().conectar()){
-                        CategoriaDAO categoriaDAO = new CategoriaDAO(conn);
-                        Categoria cat = categoriaDAO.consultaCategoria(rst.getInt(6));
                         Produto prod = new Produto(
                             
                             rst.getInt(1), rst.getString(2), descricao, 
-                            rst.getDouble(4), rst.getInt(5), cat, 
+                            rst.getDouble(4), rst.getInt(5), rst.getLong(6), 
                             TipoProduto.valueOf(rst.getString(7)));
                         produtos.add(prod);
-                    }
                 }
             }
         }

@@ -1,11 +1,11 @@
 package br.com.comex.modelo;
 
 public class ProdutoIsento extends Produto{
-    public ProdutoIsento(long idVirtual, String nome, String descricao, double preco, int quantidade, Categoria categoria){
-        super(idVirtual, nome, descricao, preco, quantidade, categoria, TipoProduto.ISENTO);
+    public ProdutoIsento(long idVirtual, String nome, String descricao, double preco, int quantidade, long categoriaId){
+        super(idVirtual, nome, descricao, preco, quantidade, categoriaId, TipoProduto.ISENTO);
     }
-    public ProdutoIsento(long idVirtual, String nome, double preco, int quantidade, Categoria categoria){
-        super(idVirtual, nome, preco, quantidade, categoria,TipoProduto.ISENTO);
+    public ProdutoIsento(long idVirtual, String nome, double preco, int quantidade, long categoriaId){
+        super(idVirtual, nome, preco, quantidade, categoriaId,TipoProduto.ISENTO);
     }
 
     @Override

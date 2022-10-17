@@ -8,24 +8,24 @@ public class Produto implements CalculadoraValorTotal {
     private String descricao;
     private double preco;
     private int quantidade;
-    private Categoria categoria;
+    private long categoriaId;
     private TipoProduto tipo = TipoProduto.NAO_ISENTO;
 
-    public Produto(long idVirtual, String nome, String descricao, double preco, int quantidade, Categoria categoria, TipoProduto tipo){
+    public Produto(long idVirtual, String nome, String descricao, double preco, int quantidade, long categoriaId, TipoProduto tipo){
         setNome(nome);
         setDescricao(descricao);
         setPreco(preco);
         setQuantidade(quantidade);
-        setCategoria(categoria);
+        setCategoria(categoriaId);
         setId(idVirtual);
         setTipo(tipo);
     }
-    public Produto(long idVirtual, String nome, double preco, int quantidade, Categoria categoria, TipoProduto tipo){
+    public Produto(long idVirtual, String nome, double preco, int quantidade, long categoria, TipoProduto tipo){
         setNome(nome);
         setDescricao(" ");
         setPreco(preco);
         setQuantidade(quantidade);
-        setCategoria(categoria);
+        setCategoria(categoriaId);
         setId(idVirtual);
         setTipo(tipo);
     }
@@ -35,8 +35,8 @@ public class Produto implements CalculadoraValorTotal {
     public void setTipo(TipoProduto tipo) {
         this.tipo = tipo;
     }
-    public Categoria getCategoria() {
-        return categoria;
+    public long getCategoria() {
+        return categoriaId;
     }public String getDescricao() {
         return descricao;
     }public long getId() {
@@ -49,8 +49,8 @@ public class Produto implements CalculadoraValorTotal {
         return quantidade;
     }
 
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
+    public void setCategoria(long categoriaId) {
+        this.categoriaId = categoriaId;
     }public void setDescricao(String descricao) {
         this.descricao = descricao;
     }public void setId(long id) {
@@ -89,7 +89,7 @@ public class Produto implements CalculadoraValorTotal {
     @Override
     public String toString() {
         String outS = "Objeto da classe Produto Com as informações: ID: %s -- Nome: %s -- Descricao: %s --\nPreco: %s -- Quantidade: %s -- ID categoria: %s -- Tipo: %s";
-        System.out.println(String.format(outS, this.id, this.nome, this.descricao, this.preco, this.quantidade, this.categoria, this.tipo));
+        System.out.println(String.format(outS, this.id, this.nome, this.descricao, this.preco, this.quantidade, this.categoriaId, this.tipo));
         return "";
     }
 }
