@@ -86,7 +86,7 @@ public class CategoriaDAO {
         }
     }
 
-    public List<Categoria> consultaCategoria() throws SQLException{
+    public List<Categoria> consultaCategorias() throws SQLException{
         List<Categoria> categorias = new ArrayList<Categoria>();
         
         String query = "SELECT ID, NOME, STATUS FROM comex.categoria";
@@ -102,5 +102,22 @@ public class CategoriaDAO {
             }
         }
         return categorias;
+    }
+
+    public Categoria consultaCategoria(int id) throws SQLException{
+        
+        String query = "SELECT ID, NOME, STATUS FROM comex.categoria WHERE ID = ?";
+
+        try(PreparedStatement stmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)){
+            stmt.setInt(1, id);
+            stmt.execute();
+            try(ResultSet rst = stmt.getResultSet()){
+                while(rst.next()){
+                    Categoria cat = new Categoria(rst.getInt(1), rst.getString(2), StatusCategoria.valueOf(rst.getString(3)));
+                    return cat;
+                }
+            }
+        }
+        return null;
     }
 }

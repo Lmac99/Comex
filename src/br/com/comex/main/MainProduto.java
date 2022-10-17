@@ -9,9 +9,9 @@ public class MainProduto {
         Categoria cat2 = new Categoria("LIVROS", StatusCategoria.INATIVA);
         //-------------------------
         //-------------------------
-        Produto prod1 = new Produto(1,"Notebook Samsung", 3523.00, 1, cat1);
+        Produto prod1 = new Produto(1,"Notebook Samsung", 3523.00, 1, cat1,TipoProduto.NAO_ISENTO);
         Produto prod2 = new ProdutoIsento(2,"Clean Architecture", "descricao", 102.90, 2, cat2);
-        Produto prod3 = new Produto(3,"Monitor Dell 27", "descricao", 1889.00, 3, cat1);
+        Produto prod3 = new Produto(3,"Monitor Dell 27", "descricao", 1889.00, 3, cat1,TipoProduto.NAO_ISENTO);
         //-------------------------
         //-------------------------
 

@@ -3,32 +3,40 @@ package br.com.comex.modelo;
 import java.util.regex.Pattern;
 
 public class Produto implements CalculadoraValorTotal {
-    private static long count = 0;
     private long id;
     private String nome;
     private String descricao;
     private double preco;
     private int quantidade;
     private Categoria categoria;
+    private TipoProduto tipo = TipoProduto.NAO_ISENTO;
 
-    public Produto(long idVirtual, String nome, String descricao, double preco, int quantidade, Categoria categoria){
+    public Produto(long idVirtual, String nome, String descricao, double preco, int quantidade, Categoria categoria, TipoProduto tipo){
         setNome(nome);
-        this.descricao = descricao;
+        setDescricao(descricao);
         setPreco(preco);
         setQuantidade(quantidade);
         setCategoria(categoria);
         setId(idVirtual);
+        setTipo(tipo);
     }
-    public Produto(long idVirtual, String nome, double preco, int quantidade, Categoria categoria){
+    public Produto(long idVirtual, String nome, double preco, int quantidade, Categoria categoria, TipoProduto tipo){
         setNome(nome);
+        setDescricao(" ");
         setPreco(preco);
         setQuantidade(quantidade);
         setCategoria(categoria);
         setId(idVirtual);
+        setTipo(tipo);
     }
-
-    public String getCategoria() {
-        return categoria.getNome();
+    public TipoProduto getTipo() {
+        return tipo;
+    }
+    public void setTipo(TipoProduto tipo) {
+        this.tipo = tipo;
+    }
+    public Categoria getCategoria() {
+        return categoria;
     }public String getDescricao() {
         return descricao;
     }public long getId() {
@@ -46,9 +54,6 @@ public class Produto implements CalculadoraValorTotal {
     }public void setDescricao(String descricao) {
         this.descricao = descricao;
     }public void setId(long id) {
-        if((id != ++count || id == 0)){
-            throw new IllegalArgumentException("Id diferente do próximo ou igual a zero");
-        }
         this.id = id;
     }public void setNome(String nome) {
         if((nome.length() < 6) || Pattern.matches("\\d.*",nome)){
@@ -83,6 +88,8 @@ public class Produto implements CalculadoraValorTotal {
     }
     @Override
     public String toString() {
-        return "Objeto da classe Categoria Produto";
+        String outS = "Objeto da classe Categoria Produto Com as informações: ID: %s -- Nome: %s -- Descricao: %s --\nPreco: %s -- Quantidade: %s -- ID categoria: %s -- Tipo: %s";
+        System.out.println(String.format(outS, this.id, this.nome, this.descricao, this.preco, this.quantidade, this.categoria, this.tipo));
+        return "";
     }
 }

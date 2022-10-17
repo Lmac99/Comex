@@ -14,7 +14,7 @@ public class MainListagemCategoria {
     public static void main(String[] args) throws SQLException {
         try(Connection conn = new ConnectionFactory().conectar()){
             CategoriaDAO categoriaDAO = new CategoriaDAO(conn);
-            List<Categoria> listaDeCategorias = categoriaDAO.consultaCategoria();
+            List<Categoria> listaDeCategorias = categoriaDAO.consultaCategorias();
             listaDeCategorias.stream().forEach(lc -> System.out.println(lc));
         }
     }
