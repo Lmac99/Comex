@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+   <S:Body>
+      <ns2:getCategoriasResponse xmlns:ns2="http://ws.comex.com.br/">
+         <return>
+            <id>30</id>
+            <nome>LIVROS</nome>
+            <status>ATIVA</status>
+         </return>
+         <return>
+            <id>17</id>
+            <nome>INFORMÁTICA</nome>
+            <status>ATIVA</status>
+         </return>
+         <return>
+            <id>19</id>
+            <nome>LIVROS TÉCNICOS</nome>
+            <status>ATIVA</status>
+         </return>
+      </ns2:getCategoriasResponse>
+   </S:Body>
+</S:Envelope>
