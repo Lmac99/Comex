@@ -8,6 +8,8 @@ public class Categoria {
     private String nome;
     private StatusCategoria status = StatusCategoria.ATIVA;
 
+    public Categoria(){}
+
     public Categoria(long id, String nome, StatusCategoria status){
         setStatus(status);
         setNome(nome);
