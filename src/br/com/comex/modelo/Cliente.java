@@ -70,10 +70,16 @@ public class Cliente {
         this.cpf = cpf;
     }
     public void setTelefone(String telefone) {
-        if(((telefone.length() < 11 || telefone.length() > 16) || !(Pattern.matches("^[(][0-9]{2}[)]?[ X][0-9]{1}[ X][0-9]{4}-[0-9]{4}", telefone))) && !telefone.isEmpty()){
+        System.out.println("telefone "+ telefone);
+        if(telefone.equals("?")){
+            this.telefone = "(00) 0 0000-0000";
+        }
+        else if(((telefone.length() < 11 || telefone.length() > 16) || !(Pattern.matches("^[(][0-9]{2}[)]?[ X][0-9]{1}[ X][0-9]{4}-[0-9]{4}", telefone))) && !telefone.isEmpty()){
             throw new IllegalArgumentException("Telefone de tamanho inválido");
         }
-        this.telefone = telefone;
+        else{
+            this.telefone = telefone;
+        }
     }
     public void setRua(String rua) {
         if(rua.length() < 6){
@@ -88,7 +94,13 @@ public class Cliente {
         this.numero = numero;
     }
     public void setComplemento(String complemento) {
-        this.complemento = complemento;
+        
+        if(complemento.equals("?")){
+            this.complemento = "";
+        }
+        else{
+            this.complemento = complemento;
+        }
     }
     public void setBairro(String bairro) {
         if(bairro.length() < 2){
@@ -103,7 +115,6 @@ public class Cliente {
         this.cidade = cidade;
     }
     public void setEstado(EstadoClienteSigla estado) {
-        System.out.println(estado.name().length());
         if(estado.name().length() != 2){
             throw new IllegalArgumentException("Número inválido, diferente de 2");
         }

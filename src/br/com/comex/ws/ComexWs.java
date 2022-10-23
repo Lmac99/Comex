@@ -8,6 +8,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
+import javax.xml.bind.annotation.XmlElement;
 
 import br.com.comex.DAO.CategoriaDAO;
 import br.com.comex.DAO.ClienteDAO;
@@ -60,9 +61,10 @@ public class ComexWs {
     }
     @WebMethod(operationName="adicionaNovoCliente")
     @WebResult(name="cliente")
-    public Cliente adicionarCliente(@WebParam(name="nome") String nome,@WebParam(name="cpf") String cpf,@WebParam(name="rua") String rua,@WebParam(name="numero") String numero,@WebParam(name="complemento") String complemento,@WebParam(name="bairro") String bairro,@WebParam(name="cidade") String cidade,@WebParam(name="UF") EstadoClienteSigla estado) throws SQLException{
+    public Cliente adicionarCliente(@WebParam(name="nome")@XmlElement(required = true) String nome,@WebParam(name="cpf")@XmlElement(required = true) String cpf,@WebParam(name="telefone") String telefone ,@WebParam(name="rua")@XmlElement(required = true) String rua,@WebParam(name="numero")@XmlElement(required = true) String numero,@WebParam(name="complemento") String complemento,@WebParam(name="bairro")@XmlElement(required = true) String bairro,@WebParam(name="cidade")@XmlElement(required = true) String cidade,@WebParam(name="UF")@XmlElement(required = true) EstadoClienteSigla estado) throws SQLException{
         try(Connection conn = new ConnectionFactory().conectar()){
-            Cliente cliente = new Cliente(0, nome, cpf, rua, numero, bairro, cidade, estado);
+            System.out.println(nome + " cpf " +cpf+ " telefone" + telefone+ " rua " + rua+ " complemento "+ complemento + numero+ " " + bairro+ " " + cidade+ " " + estado);
+            Cliente cliente = new Cliente(0, nome, cpf, telefone, rua, numero, complemento, bairro, cidade, estado);
             daoCliente = new ClienteDAO(conn);
             System.out.println("Adicionando Cliente");
             daoCliente.criar(cliente);
