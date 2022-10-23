@@ -14,6 +14,7 @@ import br.com.comex.DAO.ClienteDAO;
 import br.com.comex.DAO.ConnectionFactory;
 import br.com.comex.modelo.Categoria;
 import br.com.comex.modelo.Cliente;
+import br.com.comex.modelo.EstadoClienteSigla;
 
 @WebService
 public class ComexWs {
@@ -52,6 +53,17 @@ public class ComexWs {
         try(Connection conn = new ConnectionFactory().conectar()){
             daoCliente = new ClienteDAO(conn);
             return daoCliente.consultar();
+        }
+    }
+    @WebMethod(operationName="adicionaNovoCliente")
+    @WebResult(name="cliente")
+    public Cliente adicionarCliente(@WebParam(name="nome") String nome,@WebParam(name="cpf") String cpf,@WebParam(name="rua") String rua,@WebParam(name="numero") String numero,@WebParam(name="complemento") String complemento,@WebParam(name="bairro") String bairro,@WebParam(name="cidade") String cidade,@WebParam(name="UF") EstadoClienteSigla estado) throws SQLException{
+        try(Connection conn = new ConnectionFactory().conectar()){
+            Cliente cliente = new Cliente(0, nome, cpf, rua, numero, bairro, cidade, estado);
+            daoCliente = new ClienteDAO(conn);
+            System.out.println("Adicionando Cliente");
+            daoCliente.criar(cliente);
+            return cliente;
         }
     }
 }
