@@ -52,7 +52,7 @@ public class Cliente {
     }
     public Cliente(long id, String nome, String cpf, String rua, String numero, String bairro, String cidade, EstadoClienteSigla estado){
         this(id, nome, cpf, "(00) 0 0000-0000",rua, numero, "", bairro, cidade, estado);
-    }
+    }public Cliente(){}
     
     public void setId(long id) {
         this.id = id;

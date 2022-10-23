@@ -14,7 +14,7 @@ public class MainComexWs {
         ComexWs categoriaWs = new ComexWs();
         String URL = "http://localhost:8080/ComexWS";
 
-        System.out.println("EstoqueWS rodando: " + URL);
+        System.out.println("ComexWS rodando: " + URL);
 
         Endpoint.publish(URL, categoriaWs);
     }
