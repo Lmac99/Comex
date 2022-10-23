@@ -12,17 +12,20 @@ import javax.jws.WebService;
 import br.com.comex.DAO.CategoriaDAO;
 import br.com.comex.DAO.ClienteDAO;
 import br.com.comex.DAO.ConnectionFactory;
+import br.com.comex.DAO.ProdutoDAO;
 import br.com.comex.modelo.Categoria;
 import br.com.comex.modelo.Cliente;
 import br.com.comex.modelo.EstadoClienteSigla;
+import br.com.comex.modelo.Produto;
 
 @WebService
 public class ComexWs {
 
     private CategoriaDAO daoCategoria;
     private ClienteDAO daoCliente;
+    private ProdutoDAO daoProduto;
     
-    //OPERACOES REFERENTES A CATEGORIA
+    //OPERACOES REFERENTE A CATEGORIA
     @WebMethod(operationName="listarCategorias")
     @WebResult(name="categoria")
     public List<Categoria> getCategorias() throws SQLException{
@@ -44,7 +47,7 @@ public class ComexWs {
             return categoria;
         }
     }
-    // FIM OPERACOES REFERENTES A CATEGORIA
+    // FIM OPERACOES REFERENTE A CATEGORIA
 
     // OPERACOES REFERENTES AOS CLIENTES
     @WebMethod(operationName="listaTodosClientes")
@@ -66,4 +69,16 @@ public class ComexWs {
             return cliente;
         }
     }
+    // FIM OPERACOES REFERENTE AOS CLIENTES
+
+    // OPERACOES REFERENTE AO PRODUTO
+    @WebMethod(operationName="listarProduto")
+    @WebResult(name="produto")
+    public List<Produto> listarProdutos() throws SQLException{
+        try(Connection conn = new ConnectionFactory().conectar()){
+            daoProduto = new ProdutoDAO(conn);
+            return daoProduto.consultar();
+        }
+    }
+    // FIM OPERACOES REFERENTE AO PRODUTO
 }
