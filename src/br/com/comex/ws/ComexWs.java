@@ -39,7 +39,7 @@ public class ComexWs {
 
     @WebMethod(operationName="adicionaNovaCategoria")
     @WebResult(name="categoria")
-    public Categoria adicionarCategoria(@WebParam(name="categoria") String nomeCategoria) throws SQLException{
+    public Categoria adicionarCategoria(@WebParam(name="categoria")@XmlElement(required = true) String nomeCategoria) throws SQLException{
         try(Connection conn = new ConnectionFactory().conectar()){
             Categoria categoria = new Categoria(nomeCategoria);
             daoCategoria = new CategoriaDAO(conn);
