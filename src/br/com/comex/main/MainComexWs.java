@@ -12,7 +12,7 @@ import br.com.comex.ws.ComexWs;
 public class MainComexWs {
     public static void main(String[] args) {
         ComexWs categoriaWs = new ComexWs();
-        String URL = "http://localhost:8080/ComexWS";
+        String URL = "http://0.0.0.0:8080/ComexWS";
 
         System.out.println("ComexWS rodando: " + URL);
 

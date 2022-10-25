@@ -17,7 +17,7 @@ public class ConnectionFactory {
         ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
         Logger.getLogger("com.mchange.v2.c3p0").setLevel(Level.WARNING);
 
-        comboPooledDataSource.setJdbcUrl("jdbc:oracle:thin:@localhost:1521:xe");
+        comboPooledDataSource.setJdbcUrl("jdbc:oracle:thin:@172.17.0.2:1521:xe");
         comboPooledDataSource.setUser("comex");
         comboPooledDataSource.setPassword("comex");
         comboPooledDataSource.setLoginTimeout(2);
