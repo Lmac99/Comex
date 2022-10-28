@@ -1,3 +1,5 @@
+docker network create --driver bridge comex-network
+
 docker build -t comex/comexws .
 
 
